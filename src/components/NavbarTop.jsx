@@ -1,7 +1,7 @@
 export const NavbarTop = () => {
   return (
-    <div class="row">
-      <div class="col-9 col-lg-11 mainLinks d-none d-md-flex">
+    <div className="row">
+      <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
         <a href="/">TRENDING</a>
         <a href="/">PODCAST</a>
         <a href="/">MOODS AND GENRES</a>

@@ -1,10 +1,10 @@
 export const Footerbar = () => {
   return (
-    <div className="fixed-bottom bg-container pt-1">
+    <div className="container-fluid fixed-bottom bg-container pt-1">
       <div className="row">
         <div className="col-lg-10 offset-lg-2">
           <div className="row">
-            <div className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1">
+            <div className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1 justify-content-between">
               <div className="row">
                 <a href="/">
                   <img src="./assets/Shuffle.png" alt="shuffle" />
