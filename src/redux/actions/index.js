@@ -14,26 +14,23 @@ export const removeFromFav = (props) => ({
   type: REMOVE_FROM_FAVOURITE,
   payload: props
 });
-
-const baseEndpoint = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
-/*let rockArtists = ["queen", "u2", "thepolice", "eagles", "thedoors", "oasis", "thewho", "bonjovi"];
+/* let rockArtists = ["queen", "u2", "thepolice", "eagles", "thedoors", "oasis", "thewho", "bonjovi"];
 let popArtists = ["maroon5", "coldplay", "onerepublic", "jamesblunt", "katyperry", "arianagrande"];
 let hipHopArtists = ["eminem", "snoopdogg", "lilwayne", "drake", "kanyewest"]; */
 
-export const getFetchSongs = async (props) => {
+export const getFetchSongs = (props) => {
   return async (dispatch) => {
     try {
       dispatch({ type: GET_SONGS_LOADING_ON });
-      let res = await fetch(baseEndpoint + props);
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${props}`);
       if (res.ok) {
-        let data = await res.json();
+        let { data } = await res.json();
         dispatch({ type: GET_SONGS, payload: data });
-        console.log(data);
       } else {
         dispatch({ type: GET_SONGS_ERROR, payload: "Response not ok" });
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
       dispatch({ type: GET_SONGS_ERROR, payload: err.message });
     } finally {
       dispatch({ type: GET_SONGS_LOADING_OFF });

@@ -8,7 +8,7 @@ export const NavbarLeft = () => {
       <nav className="navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between" id="sidebar">
         <div className="nav-container">
           <a className="navbar-brand" href="index.html">
-            <img src="./assets/Spotify_Logo.png" alt="Spotify_Logo" width="131" height="40" />
+            <img src="./assets/Spotify_Logo.png" alt="Spotify_Logo" style={{ width: "131px", height: "40px" }} />
           </a>
           <button
             className="navbar-toggler"
@@ -46,7 +46,7 @@ export const NavbarLeft = () => {
                       aria-label="Search"
                       aria-describedby="basic-addon2"
                     />
-                    <div className="input-group-append m-0" style={{ marginBottom: "4%" }}>
+                    <div className="input-group-append" style={{ marginBottom: "4%" }}>
                       <button className="btn btn-outline-secondary btn-sm" type="button" id="button-addon1">
                         GO
                       </button>

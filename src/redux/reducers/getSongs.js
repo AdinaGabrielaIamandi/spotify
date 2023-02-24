@@ -12,7 +12,7 @@ const getSongs = (state = initialState, action) => {
     case GET_SONGS:
       return {
         ...state,
-        songs: action.payload
+        songs: [action.payload]
       };
     case GET_SONGS_ERROR:
       return {
