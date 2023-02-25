@@ -1,7 +1,11 @@
 import { GET_SONGS, GET_SONGS_ERROR, GET_SONGS_LOADING_ON, GET_SONGS_LOADING_OFF } from "./../actions/index";
 
 const initialState = {
-  songs: [],
+  songs: {
+    rock: [],
+    pop: [],
+    hiphop: []
+  },
   hasError: false,
   isLoading: false,
   errorMsg: ""
@@ -12,7 +16,11 @@ const getSongs = (state = initialState, action) => {
     case GET_SONGS:
       return {
         ...state,
-        songs: [action.payload]
+        songs: {
+          rock: [...state.songs.rock, action.payload],
+          pop: [...state.songs.pop, action.payload],
+          hiphop: [...state.songs.hiphop, action.payload]
+        }
       };
     case GET_SONGS_ERROR:
       return {

@@ -3,31 +3,31 @@ import { getFetchSongs } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-export const RockClassics = () => {
-  let rockArtists = ["queen", "u2", "thepolice", "eagles"];
-  let rockRandomArtists = [];
+export const PopColture = () => {
+  let popArtists = ["maroon5", "coldplay", "onerepublic", "jamesblunt"];
+  let popRandomArtists = [];
 
-  let songs = useSelector((state) => state.songs.rock);
+  let songs = useSelector((state) => state.songs.pop);
   const dispatch = useDispatch();
 
   /*   const handleSubmit = async (e) => {
     e.preventDefault();
   }; */
 
-  while (rockRandomArtists.length < 4) {
+  while (popRandomArtists.length < 4) {
     // pushes elements inside the array until it has 4 strings
-    let artist = rockArtists[Math.floor(Math.random() * rockArtists.length)]; // select an element from the array with an index between 0 and 7
-    if (!rockRandomArtists.includes(artist)) {
+    let artist = popArtists[Math.floor(Math.random() * popArtists.length)]; // select an element from the array with an index between 0 and 7
+    if (!popRandomArtists.includes(artist)) {
       // checks if the artist is not already present in the array
-      rockRandomArtists.push(artist); // pushes the artist in the array
+      popRandomArtists.push(artist); // pushes the artist in the array
     }
   }
 
   /*   handleArtist(rockRandomArtists[j], "#rockSection"); */
 
   useEffect(() => {
-    for (let j = 0; j < rockArtists.length; j++) {
-      dispatch(getFetchSongs(rockRandomArtists[j]));
+    for (let j = 0; j < popArtists.length; j++) {
+      dispatch(getFetchSongs(popRandomArtists[j]));
     }
   }, []);
   console.log("array iniziale", songs);
@@ -48,7 +48,6 @@ export const RockClassics = () => {
           </div>
         </div>
       ))}
-      {/*  */}
     </div>
   );
-}; /* */
+};

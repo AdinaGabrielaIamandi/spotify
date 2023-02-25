@@ -3,11 +3,11 @@ import { getFetchSongs } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-export const RockClassics = () => {
-  let rockArtists = ["queen", "u2", "thepolice", "eagles"];
+export const HipHop = () => {
+  let rockArtists = ["eminem", "snoopdogg", "lilwayne", "drake"];
   let rockRandomArtists = [];
 
-  let songs = useSelector((state) => state.songs.rock);
+  let songs = useSelector((state) => state.songs.hiphop);
   const dispatch = useDispatch();
 
   /*   const handleSubmit = async (e) => {
