@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { BsFillBookFill } from "react-icons/bs";
+import { useState } from "react";
 
 export const NavbarLeft = () => {
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <div className="col-2">
       <nav className="navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between" id="sidebar">
@@ -39,17 +46,23 @@ export const NavbarLeft = () => {
                 <li>
                   <div className="input-group mt-3">
                     <input
-                      type="text"
+                      type="search"
                       className="form-control mb-2"
                       id="searchField"
                       placeholder="Search"
                       aria-label="Search"
                       aria-describedby="basic-addon2"
+                      onChange={handleChange}
                     />
                     <div className="input-group-append" style={{ marginBottom: "4%" }}>
-                      <button className="btn btn-outline-secondary btn-sm" type="button" id="button-addon1">
+                      <Link
+                        to={"/search-page/" + query}
+                        className="btn btn-outline-secondary btn-sm"
+                        type="button"
+                        id="button-addon1"
+                      >
                         GO
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </li>

@@ -5,6 +5,7 @@ import { NavbarLeft } from "./components/NavbarLeft";
 import { Footerbar } from "./components/Footerbar";
 import { NavbarTop } from "./components/NavbarTop";
 import { HomePage } from "./components/HomePage";
+import { SearchPage } from "./components/SearchPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <NavbarTop />
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/search-page/:artistName" element={<SearchPage />} />
               </Routes>
             </div>
           </div>
