@@ -6,6 +6,8 @@ import { Footerbar } from "./components/Footerbar";
 import { NavbarTop } from "./components/NavbarTop";
 import { HomePage } from "./components/HomePage";
 import { SearchPage } from "./components/SearchPage";
+import { ArtistPage } from "./components/ArtistPage";
+import { AlbumPage } from "./components/AlbumPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/search-page/:artistName" element={<SearchPage />} />
+                <Route path="/album-page/:album" element={<AlbumPage />} />
+                <Route path="/artist-page/:artist" element={<ArtistPage />} />
               </Routes>
             </div>
           </div>

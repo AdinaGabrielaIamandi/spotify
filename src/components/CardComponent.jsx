@@ -26,11 +26,11 @@ export const CardComponent = (props) => {
       {singleArtist && (
         <div>
           <div className="col text-center" key={singleArtist.id}>
-            <Link to={`/album/${singleArtist.id}`}>
+            <Link to={`/album-page/${singleArtist.album.id}`}>
               <img className="img-fluid" src={singleArtist.album.cover_medium} alt="1" />
             </Link>
             <p>
-              <Link to={`/album/${singleArtist.album.id}`}>
+              <Link to={`/album-page/${singleArtist.album.id}`}>
                 Album:
                 {singleArtist.album?.title?.length < 16
                   ? `${singleArtist.album?.title}`

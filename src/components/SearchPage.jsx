@@ -11,7 +11,6 @@ export const SearchPage = () => {
       const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${params.artistName}`);
       if (response.ok) {
         const data = await response.json();
-        console.log(data.data);
         setSingleArtist(data.data);
       }
     } catch (err) {
