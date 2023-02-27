@@ -1,7 +1,16 @@
-import { GET_SONGS, GET_SONGS_ERROR, GET_SONGS_LOADING_ON, GET_SONGS_LOADING_OFF } from "./../actions/index";
+import {
+  GET_SONGS,
+  GET_SONGS_ERROR,
+  GET_SONGS_LOADING_ON,
+  GET_SONGS_LOADING_OFF,
+  ADD_TO_FAVOURITE,
+  REMOVE_FROM_FAVOURITE,
+  PLAY_SONGS
+} from "./../actions/index";
 
 const initialState = {
-  artists: [],
+  favourite: [],
+  player: [],
   rock: ["queen", "u2", "thepolice", "eagles"],
   pop: ["maroon5", "coldplay", "onerepublic", "jamesblunt"],
   hiphop: ["eminem", "snoopdogg", "lilwayne", "drake"],
@@ -32,6 +41,21 @@ const getSongs = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false
+      };
+    case ADD_TO_FAVOURITE:
+      return {
+        ...state,
+        favourite: [...state.like, action.payload]
+      };
+    case REMOVE_FROM_FAVOURITE:
+      return {
+        ...state,
+        favourite: [...state.like, action.payload]
+      };
+    case PLAY_SONGS:
+      return {
+        ...state,
+        player: action.payload
       };
     default:
       return state;

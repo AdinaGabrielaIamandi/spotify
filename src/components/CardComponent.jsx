@@ -37,7 +37,7 @@ export const CardComponent = (props) => {
                   : `${singleArtist.album?.title.substring(0, 16)}...`}
                 <br />
               </Link>
-              <Link to={`/artist/${singleArtist.artist.name}`}>Artist: {singleArtist.artist.name} </Link>
+              <Link to={`/artist-page/${singleArtist.artist.name}`}>Artist: {singleArtist.artist.name} </Link>
             </p>
           </div>
         </div>
