@@ -45,12 +45,12 @@ const getSongs = (state = initialState, action) => {
     case ADD_TO_FAVOURITE:
       return {
         ...state,
-        favourite: [...state.like, action.payload]
+        favourite: [...state.favourite, action.payload]
       };
     case REMOVE_FROM_FAVOURITE:
       return {
         ...state,
-        favourite: [...state.like, action.payload]
+        favourite: [...state.favourite, action.payload]
       };
     case PLAY_SONGS:
       return {

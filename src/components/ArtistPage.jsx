@@ -1,10 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { AiFillHeart } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { addToFav, playSongs } from "../redux/actions";
 
 export const ArtistPage = () => {
   const params = useParams();
   const [artist, setArtist] = useState();
+  const fav = useSelector((state) => state.songs.favourite);
+  const dispatch = useDispatch();
 
   const getFetchArtist = async () => {
     try {
@@ -24,8 +29,6 @@ export const ArtistPage = () => {
     getFetchArtist();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(artist);
 
   return (
     <>
@@ -52,7 +55,7 @@ export const ArtistPage = () => {
             <div className="row" id="apiLoaded">
               {artist?.data.map((e) => (
                 <>
-                  <div className="col-sm-auto col-md-auto text-center mb-5" /* onClick={navigate()}} */>
+                  <div className="col-sm-auto col-md-auto text-center mb-5">
                     <Link>
                       <img key={e?.id} src={e?.album.cover_medium} alt="cover" />
                     </Link>
@@ -63,11 +66,21 @@ export const ArtistPage = () => {
                           {e.album.title.length < 16 ? `${e.album.title}` : `${e.album.title.substring(0, 16)}...`}
                         </p>
                       </Link>
-                      <Link className="text-decoration-none text-light" to={`/artist-page/${e?.artist.name}`}>
+                      <Link
+                        className="text-decoration-none text-light"
+                        to={`/artist-page/${e?.artist.name}`}
+                        onClick={() => dispatch(playSongs(e))}
+                      >
                         <p>
                           Track:
                           {e?.title_short.length < 16 ? `${e.title_short}` : `${e.title_short.substring(0, 16)}...`}
-                        </p>
+                        </p>{" "}
+                        <AiFillHeart
+                          onClick={() => dispatch(addToFav(e))}
+                          style={{
+                            color: fav.map((f) => (f === e.id ? "red" : "white"))
+                          }}
+                        />
                       </Link>
                     </div>
                   </div>
